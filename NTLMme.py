@@ -58,7 +58,7 @@ def main():
 						with open(args.outputfile, 'a+') as output_file:
 							output_file.write(binascii.hexlify(hash) + ":" +line)
 					else:
-						print binascii.hexlify(hash) +':'+line
+						print (binascii.hexlify(hash).decode('utf8') +':'+line)
 	elif args.randomhashes is not None:
 		for x in range(args.randomhashes):
 			lst = [random.choice('0123456789abcdef') for i in range(32)]
@@ -75,7 +75,7 @@ def main():
 			with open(args.outputfile, 'a+') as output_file:
 				output_file.write(binascii.hexlify(hash) + '\n')
 		else:
-			print binascii.hexlify(hash)
+			print (binascii.hexlify(hash))
 
 if __name__ == "__main__":
     main()
