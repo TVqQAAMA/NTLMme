@@ -56,7 +56,7 @@ def main():
 					hash = hashlib.new('md4', line.encode('utf-16le')).digest()
 					if args.outputfile is not None:
 						with open(args.outputfile, 'a+') as output_file:
-							output_file.write(binascii.hexlify(hash) + ":" +line)
+							output_file.write(binascii.hexlify(hash).decode('utf8') + ":" +line + "\n")
 					else:
 						print (binascii.hexlify(hash).decode('utf8') +':'+line)
 	elif args.randomhashes is not None:
